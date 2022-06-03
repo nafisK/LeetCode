@@ -1,12 +1,6 @@
 class Solution:
     def containsDuplicate(self, nums: List[int]) -> bool:
-        
-        # iterate through the entire thing
-            # if already in hashmap, return true
-            # if not in hashmap, keep iterating
-            
-        # return false
-        
+
         # hashset to store integers
         hashSet = set()
         
