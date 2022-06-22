@@ -2,21 +2,29 @@ class Solution:
     def longestConsecutive(self, nums: List[int]) -> int:
         
        # Efficient
+    
+        # turns into set to remove duplicates and for constant lookup (https://stackoverflow.com/a/44080017/12461363)
         nums = set(nums)
         max_length = 0
-        # iterate through nums
-        # if you find a start,
-            # Keep iterating until you find the last consec num from that start in the set
-                # iterate start by one until you hit the end | lets name it end
-            # get the diff of end - start
-        # check if output of current consec is greater than last consec
         
+        # iterates through each value in set
         for n in nums:
+            
+            # if there is no previous value of n, it means its a start
             if n - 1 not in nums:
+                
+                # using start for code readability
                 start = n
+                
+                # keep checking for next values from start to get upto the last one
                 while start in nums:
                     start += 1
-                    
-                max_length = max (max_length, start - n)
                 
+                # dif between original start and new start which is the end of the seq.
+                diff = start - n
+                
+                # finds max of the prev. consec and the new consec
+                max_length = max (max_length, diff)
+                
+        # returns the max
         return max_length
