@@ -1,7 +1,9 @@
 class Solution:
     def longestConsecutive(self, nums: List[int]) -> int:
         
-       # Efficient
+        # Efficient
+        # Time: O(n) -> Due to iteration. Lookups in maps/sets are constant
+        # Space: O(n) -> Due to storing all elements in a set
     
         # turns into set to remove duplicates and for constant lookup (https://stackoverflow.com/a/44080017/12461363)
         nums = set(nums)
