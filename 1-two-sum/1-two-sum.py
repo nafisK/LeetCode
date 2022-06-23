@@ -1,19 +1,18 @@
 class Solution:
     def twoSum(self, nums: List[int], target: int) -> List[int]:
+        
+        # compliment + nums[i] = target
+        # target - nums[i] = compliment
+        
+        if len(nums) < 2:
+            return []
+        
         hashmap = {}
-        
-        # store all values into the hashmap
-        # using key: index, value: ints
         for i in range(len(nums)):
-            hashmap[nums[i]] = i
-            
-        # check if compliment if present, if so, return compliment
-        for i in range(len(nums)):
-            complement = target - nums[i]
-            
-            if complement in hashmap and hashmap[complement] != i:
-                return [i, hashmap[complement]]
-            
-            
-            
-        
+            compliment = target - nums[i]
+            if compliment in hashmap:
+                return [hashmap[compliment], i]
+            else:
+                hashmap[nums[i]] = i;
+                
+        return []
